@@ -8,7 +8,7 @@
     <link rel="dns-prefetch" href="https://api.counterapi.dev">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0b0f">
-    <meta name="description" content="Free spinner wheel — enter your options and spin the wheel to make a random decision. Perfect for choosing food, names, tasks, or anything. No download, instant fun!">
+    <meta name="description" content="Free spinner wheel. Enter options and spin to make random decisions. Perfect for choosing food, names, tasks.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jimmyllll.github.io/wheel-spinner/">
 
@@ -16,18 +16,18 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Wheel Spinner">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="Wheel Spinner — Free Random Decision Maker | Spin The Wheel Online">
-    <meta property="og:description" content="Free spinner wheel — enter your options and spin the wheel to make a random decision. Perfect for choosing food, names, tasks, or anything. No download, instant fun!">
+    <meta property="og:title" content="Wheel Spinner — Free Random Decision Maker Online">
+    <meta property="og:description" content="Free spinner wheel. Enter options and spin to make random decisions. Perfect for choosing food, names, tasks.">
     <meta property="og:url" content="https://jimmyllll.github.io/wheel-spinner/">
     <meta property="og:image" content="https://jimmyllll.github.io/wheel-spinner/favicon.svg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Wheel Spinner — Free Random Decision Maker | Spin The Wheel Online">
-    <meta name="twitter:description" content="Free spinner wheel — enter your options and spin the wheel to make a random decision. Perfect for choosing food, names, tasks, or anything. No download, instant fun!">
+    <meta name="twitter:title" content="Wheel Spinner — Free Random Decision Maker Online">
+    <meta name="twitter:description" content="Free spinner wheel. Enter options and spin to make random decisions. Perfect for choosing food, names, tasks.">
     <meta name="twitter:image" content="https://jimmyllll.github.io/wheel-spinner/favicon.svg">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <title>Wheel Spinner — Free Random Decision Maker | Spin The Wheel Online</title>
+    <title>Wheel Spinner — Free Random Decision Maker Online</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1840337371416691" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <script type="application/ld+json">
@@ -151,6 +151,50 @@
             font-family: inherit;
         }
         .preset-btn:hover { border-color: var(--accent); color: var(--text); }
+    
+
+    /* UX fixes: touch targets, font sizes */
+    @media (max-width: 768px) {
+        .navbar .nav-links a {
+            padding: 0.5rem 0.3rem;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar { padding: 0.5rem 0.75rem; }
+        .navbar .brand { font-size: 0.95rem; }
+        .navbar .nav-links { gap: 0.3rem; }
+        input[type="text"], input[type="number"], select, textarea {
+            font-size: 16px !important;
+        }
+        .tab { min-height: 44px; display: flex; align-items: center; }
+        .preset-btn { min-height: 44px; }
+        .unit-toggle button { min-height: 44px; padding: 0.5rem 0.75rem; }
+        .btn { min-height: 44px; }
+        .legend-item, .outlet { min-height: 44px; }
+    }
+    /* Scroll to top button */
+    .scroll-top {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--accent, #4f8cff);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: none;
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        transition: opacity 0.3s;
+    }
+    .scroll-top.visible { display: flex; }
+
     </style>
 </head>
 <body>
