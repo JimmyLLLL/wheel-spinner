@@ -177,5 +177,35 @@
     <div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;">More: <a href="https://jimmywithfiona.com/">JimmyWithFiona — Home</a> · <a href="https://jimmywithfiona.com/brick-breaker/">Brick Breaker Game</a> · <a href="https://jimmywithfiona.com/mortgage-calculator/">Mortgage Calculator</a> · <a href="https://jimmywithfiona.com/fun-tests/">FunTests — Quizzes</a> · <a href="https://jimmywithfiona.com/game-2048/">2048 Game</a> · <a href="https://jimmywithfiona.com/bmi-calculator/">BMI Calculator</a></div>
 </footer>
 <script defer src="js/counter.js"></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"🎡 Wheel Spinner":"🎡 转盘","Spin":"旋转","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","About Wheel Spinner":"关于转盘","Wheel Spinner is a free online tool that helps you make random decisions with a fun spinning wheel. Enter your options, spin, and let the wheel decide. No downloads, no signups — just instant fun.":"转盘是一款免费的在线工具，通过有趣的旋转转盘帮助你做出随机决策。输入你的选项，旋转转盘，让转盘来决定。无需下载、无需注册 — 即开即玩。","How It Works":"工作原理","Type your options into the text box (one per line), then click SPIN. The wheel rotates with a smooth animation and stops on a random winner. Results are determined by a random number generator, ensuring fairness.":"在文本框中输入你的选项（每行一个），然后点击旋转。转盘以流畅的动画旋转并停在随机的中奖结果上。结果由随机数生成器决定，确保公平性。","Use Cases":"使用场景","Deciding what to eat for dinner":"决定晚餐吃什么","Picking a random name from a list":"从列表中随机选取名字","Choosing who goes first in a game":"决定游戏中谁先开始","Classroom random student selection":"课堂随机抽选学生","Giveaway and raffle drawings":"抽奖和抽奖活动","Yes or No decisions":"是或否的决策","Spin Now →":"立即旋转 →","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 Wheel Spinner ·":"© 2026 转盘 ·","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","FunTests — Quizzes":"FunTests — 测试题","2048 Game":"2048游戏","BMI Calculator":"BMI 计算器"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>

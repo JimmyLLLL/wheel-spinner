@@ -179,5 +179,35 @@
     <div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;">More: <a href="https://jimmywithfiona.com/">JimmyWithFiona — Home</a> · <a href="https://jimmywithfiona.com/brick-breaker/">Brick Breaker Game</a> · <a href="https://jimmywithfiona.com/mortgage-calculator/">Mortgage Calculator</a> · <a href="https://jimmywithfiona.com/fun-tests/">FunTests — Quizzes</a> · <a href="https://jimmywithfiona.com/game-2048/">2048 Game</a> · <a href="https://jimmywithfiona.com/bmi-calculator/">BMI Calculator</a></div>
 </footer>
 <script defer src="js/counter.js"></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"🎡 Wheel Spinner":"🎡 转盘","Spin":"旋转","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","Privacy Policy":"隐私政策","Last updated: July 23, 2026":"最后更新：2026年7月23日","Wheel Spinner is a browser-based tool. All spin results and options are processed locally in your browser. We do not collect, store, or transmit your data.":"转盘是一款基于浏览器的工具。所有旋转结果和选项均在你的浏览器中本地处理。我们不收集、存储或传输你的数据。","1. Data Processing":"1. 数据处理","All wheel spinning and option processing happens entirely in your browser. Your inputs never leave your device.":"所有转盘旋转和选项处理完全在你的浏览器中进行。你的输入不会离开你的设备。","2. Third-Party Services":"2. 第三方服务","— hosts this website.":"— 托管本网站。","— anonymous page view counting only.":"— 仅匿名页面浏览计数。","3. Advertising":"3. 广告","This site may display ads via Google AdSense. Google uses cookies to serve ads. Manage preferences at":"本网站可能通过 Google AdSense 显示广告。Google 使用 Cookie 来投放广告。管理偏好设置：","Google Ad Settings":"Google 广告设置","or opt out at":"或选择退出：","4. Children's Privacy":"4. 儿童隐私","This tool is suitable for all ages. We do not collect personal information.":"本工具适合所有年龄段。我们不收集个人信息。","5. Contact":"5. 联系方式","Questions? Visit our":"有疑问？请访问我们的","contact page":"联系页面","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 Wheel Spinner ·":"© 2026 转盘 ·","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","FunTests — Quizzes":"FunTests — 测试题","2048 Game":"2048游戏","BMI Calculator":"BMI 计算器"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
